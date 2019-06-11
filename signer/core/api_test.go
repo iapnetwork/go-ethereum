@@ -241,6 +241,50 @@ func mkTestTx(from common.MixedcaseAddress) core.SendTxArgs {
 	return tx
 }
 
+func mkCreateContractTx(from common.MixedcaseAddress) core.SendTxArgs {
+	gas := hexutil.Uint64(21000)
+	gasPrice := (hexutil.Big)(*big.NewInt(2000000000))
+	value := (hexutil.Big)(*big.NewInt(1e18))
+	nonce := (hexutil.Uint64)(0)
+	data := hexutil.Bytes(common.Hex2Bytes("01020304050607080a"))
+	tx := core.SendTxArgs{
+		From:     from,
+		To:       nil,
+		Gas:      gas,
+		GasPrice: gasPrice,
+		Value:    value,
+		Data:     &data,
+		Nonce:    nonce}
+	return tx
+}
+
+func TestCreateContractT(t *testing.T) {
+	api, control := setup(t)
+	createAccount(control, api, t)
+	control.approveCh <- "A"
+	list, err := api.List(context.Background())
+	if err != nil {
+		t.Fatal(err)
+	}
+	a := common.NewMixedcaseAddress(list[0])
+
+	tx := mkCreateContractTx(a)
+	tx.Data = nil
+	// methodSig := "test(uint)"
+	control.approveCh <- "Y"
+	control.inputCh <- "emptycodecontract"
+
+	res, err := api.SignTransaction(context.Background(), tx, nil)
+	if res != nil {
+		t.Errorf("Expected nil-response, got %v", res)
+	}
+	if err.Error() != "tx will create contract with value but empty code" {
+		t.Errorf("Expected empty contract warning, got %v", err)
+	}
+
+	// TODO: test permitted addresses can create a contract
+}
+
 func TestSignTx(t *testing.T) {
 	var (
 		list      []common.Address

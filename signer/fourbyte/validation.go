@@ -47,6 +47,11 @@ func (db *Database) ValidateTransaction(selector *string, tx *core.SendTxArgs) (
 	}
 	// Contract creation doesn't validate call data, handle first
 	if tx.To == nil {
+		// TODO: Read source of whitelisted address
+		if permitCreateContract([]common.Address{}, tx.From.Address()) {
+			return nil, fmt.Errorf("Only permitted address can create a contract %v", tx.From.Address())
+		}
+
 		// Contract creation should contain sufficient data to deploy a contract. A
 		// typical error is omitting sender due to some quirk in the javascript call
 		// e.g. https://github.com/ethereum/go-ethereum/issues/16106.
@@ -114,4 +119,13 @@ func (db *Database) validateCallData(selector *string, data []byte, messages *co
 	} else {
 		messages.Info(info.String())
 	}
+}
+
+func permitCreateContract(whitelist []common.Address, from common.Address) bool {
+	for _, addr := range whitelist {
+		if from == addr {
+			return true
+		}
+	}
+	return false
 }
