@@ -19,12 +19,12 @@ package rawdb
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/iapnetwork/go-ethereum/common"
+	"github.com/iapnetwork/go-ethereum/core/types"
+	"github.com/iapnetwork/go-ethereum/ethdb"
+	"github.com/iapnetwork/go-ethereum/log"
+	"github.com/iapnetwork/go-ethereum/params"
+	"github.com/iapnetwork/go-ethereum/rlp"
 )
 
 // ReadTxLookupEntry retrieves the positional metadata associated with a transaction

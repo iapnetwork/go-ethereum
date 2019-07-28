@@ -20,11 +20,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/les/flowcontrol"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/iapnetwork/go-ethereum/common"
+	"github.com/iapnetwork/go-ethereum/common/mclock"
+	"github.com/iapnetwork/go-ethereum/les/flowcontrol"
+	"github.com/iapnetwork/go-ethereum/p2p"
+	"github.com/iapnetwork/go-ethereum/rlp"
 )
 
 const (
