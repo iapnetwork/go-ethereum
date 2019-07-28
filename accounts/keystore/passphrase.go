@@ -121,7 +121,7 @@ func (ks keyStorePassphrase) StoreKey(filename string, key *Key, auth string) er
 				"This indicates that the keystore is corrupted. \n" +
 				"The corrupted file is stored at \n%v\n" +
 				"Please file a ticket at:\n\n" +
-				"https://github.com/iapnetwork/go-ethereum/issues." +
+				"https://github.com/ethereum/go-ethereum/issues." +
 				"The error was : %s"
 			return fmt.Errorf(msg, tmpName, err)
 		}
