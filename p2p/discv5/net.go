@@ -24,12 +24,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/iapnetwork/go-ethereum/common"
+	"github.com/iapnetwork/go-ethereum/common/mclock"
+	"github.com/iapnetwork/go-ethereum/crypto"
+	"github.com/iapnetwork/go-ethereum/log"
+	"github.com/iapnetwork/go-ethereum/p2p/netutil"
+	"github.com/iapnetwork/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

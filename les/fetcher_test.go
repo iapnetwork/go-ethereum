@@ -22,11 +22,11 @@ import (
 
 	"net"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/iapnetwork/go-ethereum/common"
+	"github.com/iapnetwork/go-ethereum/core/types"
+	"github.com/iapnetwork/go-ethereum/crypto"
+	"github.com/iapnetwork/go-ethereum/p2p"
+	"github.com/iapnetwork/go-ethereum/p2p/enode"
 )
 
 func TestFetcherULCPeerSelector(t *testing.T) {

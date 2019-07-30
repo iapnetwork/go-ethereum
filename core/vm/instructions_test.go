@@ -24,9 +24,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/iapnetwork/go-ethereum/common"
+	"github.com/iapnetwork/go-ethereum/crypto"
+	"github.com/iapnetwork/go-ethereum/params"
 )
 
 type TwoOperandTestcase struct {
